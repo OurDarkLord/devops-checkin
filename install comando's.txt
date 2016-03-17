@@ -1,3 +1,4 @@
+npm update -q
 npm install --save express-handlebars
 npm install --save express
 npm install expresso

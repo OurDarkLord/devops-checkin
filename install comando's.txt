@@ -1,2 +1,4 @@
 npm install --save express-handlebars
 npm install --save express
+npm install expresso
+npm install vows -g

@@ -1,4 +1,6 @@
 npm update -q
+npm -g install npm@latest
+npm -g install npm@latest-2
 npm install --save express-handlebars
 npm install --save express
 npm install expresso

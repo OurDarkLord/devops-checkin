@@ -5,7 +5,7 @@
   "description": "",
   "main": "expresshacka.js",
   "scripts": {
-    "test": "test": "vows --spec"
+    "test": "test": "vows --spec",
     "test": "expresso test/*"
   },
   "author": "",

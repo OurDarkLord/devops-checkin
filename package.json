@@ -5,6 +5,7 @@
   "description": "",
   "main": "expresshacka.js",
   "scripts": {
+    "test": handlebars.js
   },
   "author": "",
   "license": "ISC",

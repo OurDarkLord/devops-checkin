@@ -5,7 +5,7 @@
   "description": "",
   "main": "expresshacka.js",
   "scripts": {
-    "test": "Gruntfile.js"
+    "test": "Gruntfile"
   },
   "author": "",
   "license": "ISC",

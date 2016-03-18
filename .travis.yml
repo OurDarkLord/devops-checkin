@@ -10,7 +10,7 @@ services:
   - postgresql
 
 script:
-  - grunt test stack travis
+  - grunt test
 
 email:
   on_failure: change

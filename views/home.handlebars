@@ -5,8 +5,8 @@
 	<div class="vertical-center">
     <div class="col-md-2 col-md-offset-4 input">
         <label for="usr">Student number:</label>
-        <input type="text" class="form-control" id="usr" ng-model="studentNumber">
-        <button   ng-click="Aanwezig()" type="button" class="btn btn-primary">Aanwezig</button>
+        <input type="text" class="form-control" id="usr" ng-model="studentnumber">
+        <button   ng-click="aanwezig()" type="button" class="btn btn-primary">Aanwezig</button>
     </div>
 
     <div class="container">
@@ -20,9 +20,9 @@
             </thead>
             <tbody>
             <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
+                <td>s085978</td>
+                <td>Verheyen</td>
+                <td>Steven</td>
             </tr>
             <tr>
                 <td>Mary</td>
@@ -34,15 +34,46 @@
                 <td>Dooley</td>
                 <td>july@example.com</td>
             </tr>
+            <tr ng-repeat="student in studentenLijst">
+                <td>{{student.naam}}</td>
+                <td>{{student.voornaam}}</td>
+                <td>{{student.nummer}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
 </div>
 </div>
 <script>
-        var myApp = angular.module("myApp",[]);
-        myApp.controller("AppCtrl", function($scope, $http) {
-            console.log("in controller");
+    var studentenLijst = [];
 
+    function student(args) {
+        this.naam = args.naam;
+        this.voornaam = args.voornaam;
+        this.nummer = args.nummer;
+    }
+    function studentAanwezig(req) {
+        var extraStudent = new Student({
+            naam: req.naam,
+            voornaam: req.voornaam,
+            nummer: req.nummer
         });
+
+        studentenLijst.push(extraStudent);
+        $scope.studentenlijst = studentenLijst;
+    }
+    var host = "http://localhost:3000";
+    var myApp = angular.module("myApp",[]);
+    myApp.controller("AppCtrl", function($scope, $http) {
+        console.log("in controller");
+        
+        $scope.aanwezig = function() {
+            console.log("ik ben aanwezig");
+            var id = $scope.studentnumber;
+            $http.post(host+"/api/studentZoeken",id).success(function(response){
+                console.log(response);
+                studentAanwezig(response);
+            })
+        };
+    });
 </script>

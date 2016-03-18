@@ -10,7 +10,8 @@ services:
   - postgresql
 
 script:
-  - grunt --stack travis
+  - grunt test
+
 
 email:
   on_failure: change
@@ -20,7 +21,7 @@ after_success
   deploy:
     provider: heroku
     api_key:
-      secure: ""
+      secure: "4a783d59-b7f3-4487-bf6e-6f1a5744f540"
     strategy: git
 
 after_failure

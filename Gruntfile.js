@@ -3,7 +3,8 @@ module.exports = function(grunt) {
 
   // configure the tasks
   grunt.initConfig({
-
+	pkg: grunt.file.readJSON('package.json'),
+  
     copy: {
       build: {
         cwd: 'source',
